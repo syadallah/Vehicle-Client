@@ -43,3 +43,9 @@ const signOut = function (data) {
 
   })
 }
+module.exports = {
+  signUp,
+  signIn,
+  changePassword,
+  signOut
+}

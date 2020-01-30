@@ -12,6 +12,50 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+      <header class="header">
+      <nav class="nav">
+      <button class="btn btn-info change-pw after-auth" style="display: block;"> Change Password </button>
+      <form id="sign-out" class="after-auth account-actions" style="display: block;">
+      <button class="btn btn-danger sign-out">Sign Out</button>
+      </form>
+      </nav>
+      <form id="change-password" class="after-auth account-actions">
+      <h4>Change Password</h4>
+      <input type="password" name="passwords[old]" class="inputs" placeholder="old password" required="">
+      <br>
+      <input type="password" name="passwords[new]" class="inputs" placeholder="new password" required="">
+      <br>
+      <button class="btn btn-secondary">Submit</button>
+    </form>>
+        <h4>Change Password</h4>
+        <input type="password" name="passwords[old]" class="inputs" placeholder="old password" required>
+        <br>
+        <input type="password" name="passwords[new]" class="inputs" placeholder="new password" required>
+        <br>
+        <button class="btn btn-secondary">Submit</button>
+        <h1>Browser Template</h1>
+      </form>
+      </header>
+
+      <section class="before-authorization">
+      <form id="sign-up">
+        <h4>Sign Up</h4>
+        <input type="email" name="credentials[email]" class="inputs" placeholder="email" required>
+        <br>
+        <input type="password" name="credentials[password]" class="inputs" placeholder="password" required>
+        <br>
+        <input type="password" name="credentials[password confirmation]" class="inputs" placeholder="password" required>
+        <br>
+        <button class="btn btn-secondary">Submit</button>
+      </form>
+      <form id="sign-in">
+        <h4>Sign In</h4>
+        <input type="email" name="credentials[email]" class="inputs" placeholder="email" required>
+        <br>
+        <input type="password" name="credentials[password]" class="inputs" placeholder="password" required>
+      </form>
+      <p id="message"></p>
+    </section>
     </body>
 </html>
