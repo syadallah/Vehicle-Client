@@ -1,0 +1,12 @@
+curl "https://sleepy-fjord-72760.herokuapp.com/sign-in" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --data '{
+    "credentials": {
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'"
+    }
+  }'
+
+echo
