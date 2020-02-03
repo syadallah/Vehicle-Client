@@ -19,4 +19,4 @@ bootstrap
 
 Still need to work on:
 Add all costs togather and give a user the total
-Add dates and costs per year and month
+Add dates and costs per year and month.
