@@ -43,9 +43,52 @@ const signOut = function (data) {
 
   })
 }
+
+const addToList = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/cars',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const printList = function () {
+  return $.ajax({
+    url: config.apiUrl + '/cars',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const removeCar = (carId) => {
+  return $.ajax({
+    url: config.apiUrl + '/cars/' + carId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const updateCar = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/cars/' + store.currentcar.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  addToList,
+  removeCar,
+  printList,
+  updateCar
 }

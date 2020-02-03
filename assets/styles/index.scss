@@ -1,1 +1,63 @@
 @import '~bootstrap/scss/bootstrap';
+@import url("https://fonts.googleapis.com/css?family=Catamaran|Pathway+Gothic+One|Raleway&display=swap");
+
+body{
+  font-family: 'Raleway', sans-serif;
+  background-image: url(https://i.imgur.com/7TOozyy.jpg);
+  background-color: #000;
+  // height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  max-width: 100%;
+  height: auto;
+
+}
+h1, p{
+  text-shadow: 8px 8px 8px #000;
+  font-weight: bold;
+  margin: 30px 10px 20px 40px;
+
+}
+#amazed{
+  color: #e0d612;
+}
+h4 {
+  font-weight: bold;
+  border-color: #fff;
+  border-width: 1px;
+}
+.alert{
+  margin: 20px 20px auto;
+  padding: 5px;
+}
+.nav {
+  background-color: #1e2115;
+  padding: 3px 10px;
+}
+.content{
+  color: #f00;
+  font-size: 70px;
+}
+form {
+  max-width: 300px;
+  background-color: #e0d61299;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 20px;
+
+}
+.btn {
+  padding: 1px 4px;
+  margin: 4px 0px 4px 10px;
+  border-color: #000;
+  font-size: 15px;
+}
+.inputs{
+  font-family: sans-serif;
+  margin: 3px auto;
+  padding: 2px 9px;
+  border-radius: 6px;
+  border-color: #000;
+}

@@ -1,0 +1,17 @@
+{{#each cars as |car|}}
+  {{log car}}
+  <section class='carlist' data-id="{{car.id}}">
+    <h3 class= 'carmodel'></h3>
+    <h3> Model:
+      {{car.model}}
+    </h3>
+    <h3>Year:
+      {{#if car.year}}
+        {{car.year}}
+      {{else}}
+        No year provided.
+      {{/if}}
+    </h3>
+    <button type="button" class="btn btn-danger" id='destroyCar'>Remove</button>
+  </section>
+  {{/each}}

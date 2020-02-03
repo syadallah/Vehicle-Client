@@ -1,73 +1,104 @@
 'use strict'
 const store = require('./../store')
+const api = require('./api')
+const showCarsHB = require('./../templates/car-listing.handlebars')
+
+// sign up
 const signUpSuccess = function (response) {
-  // // console.log(response)
-  // $('#sign-up')[0].reset()
-  // $('#message').text('Successfully signed up!')
-  // $('#failure-message').hide()
-}
-const signUpFailure = function () {
-  // $('#failure-message').text('Sign up failed')
-  // // console.log(error)
+  $('#sign-up')[0].reset()
 }
 
-// Sign -In
+// sign in
 const signInSuccess = function (response) {
-  // console.log(response)
-  // $('#sign-up').hide()
-  // $('#sign-in').hide()
-  // $('#change-password').show()
-  // $('#sign-out').show()
-  // $('#message').html('Successfully signed in!')
-  // $('#start-game').show()
-  // $('.logged-out').hide()
-  // $('#reset').hide()
-  // $('#failure-message').hide()
-  // $('#sign-out').hide()
   store.user = response.user
+  $('.after-auth').show()
+  $('.before-auth, #signin, #change-password, #car-info').hide()
 }
-const signInFailure = function () {
-  $('#failure-message').text('The username and/or password you specified are not correct')
-  // console.log(error)
-}
-//
-//
 
 // Change password
 const changePasswordSuccess = function (response) {
-  // $('#change-password')[0].reset()
-  // $('#message').text('Password Changed!')
-  // $('#failure-message').hide()
+  store.user = response.user
+  $('.after-auth').show()
+  $('.before-auth, #signin').hide()
 }
-const changePasswordFailure = function () {
-//   $('#failure-message').text('Failed to change password')
-//   // console.log(error)
-// }
 
+const changePasswordFailure = function () {
+  console.log('error')
+}
+
+// sign out
 const signOutSuccess = function (response) {
-  // $('#sign-in')[0].reset()
-  // $('#message').text("You're signed out!")
-  // $('#sign-up').show()
-  // $('#sign-in').show()
-  // $('#change-password').hide()
-  // $('.logged-out').show()
-  // $('.container').hide()
-  // $('#reset').hide()
-  // $('#win-lose').hide()
-  // $('#draw').hide()
-  // $('#sign-out').hide()
+  $('#sign-in, #sign-up, #change-password')[0].reset()
+  $('h1, p, #signin').show()
+  $('.after-auth, .before-auth').hide()
 }
 const signOutFailure = function () {
-  // $('#message').text('sign Out Faild')
-  // // console.log(error)
+  console.log('error')
 }
+
+// const carInfoSuccess = function (response) {
+//   $('#car-info')[0].reset()
+//   console.log(response)
+//   store.car = response.car
+// }
+
+// Show forms after click on button on nav bar
+const signInShow = function () {
+  $('.before-auth').show()
+  $('h1, p').hide()
+}
+const changePasswordShow = function () {
+  $('#change-password').show()
+}
+const carInfoShow = function () {
+  $('#car-info').show()
+}
+
+// Add costs to list form and store data
+const addToListSuccess = function (response) {
+  store.car = response.car
+  console.log(response)
+  // $('.add-to-list')[0].reset()
+}
+
+const addToListFailure = function (response) {
+  console.log('error')
+}
+
+// Handlebars
+const printListSuccess = (data) => {
+  console.log(data)
+  const showCars = showCarsHB({ cars: data.cars })
+  $('.content').html(showCars)
+  $('.content').show()
+}
+
+// Remove one obeject from the cars list using handelbars
+// Clear all cars list < onRemoveSuccess
+const clearCars = () => {
+  $('.content').empty()
+}
+// clear all objects first (clearCars) then get the new list from API
+const onRemoveSuccess = (data) => {
+  clearCars()
+  api.getCars(data)
+    .then(printListSuccess)
+    // .catch(onRemoveFailure)
+}
+
 module.exports = {
   signUpSuccess,
-  signUpFailure,
-  signInFailure,
   signInSuccess,
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  signInShow,
+  changePasswordShow,
+  carInfoShow,
+  addToListSuccess,
+  addToListFailure,
+  printListSuccess,
+  onRemoveSuccess,
+  clearCars
 }
