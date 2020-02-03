@@ -63,7 +63,7 @@ const printList = function () {
     }
   })
 }
-const removeCar = (carId) => {
+const removeCar = function (carId) {
   return $.ajax({
     url: config.apiUrl + '/cars/' + carId,
     method: 'DELETE',
@@ -72,9 +72,27 @@ const removeCar = (carId) => {
     }
   })
 }
-const updateCar = (data) => {
+const removeAllCars = function () {
   return $.ajax({
-    url: config.apiUrl + '/cars/' + store.currentcar.id,
+    url: config.apiUrl + '/cars/',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const getCar = (id) => {
+  return $.ajax({
+    url: config.apiUrl + '/books/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const updateCar = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/cars/' + store.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -89,6 +107,8 @@ module.exports = {
   signOut,
   addToList,
   removeCar,
+  removeAllCars,
   printList,
+  getCar,
   updateCar
 }

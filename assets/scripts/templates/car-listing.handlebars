@@ -6,12 +6,25 @@
       {{car.model}}
     </h3>
     <h3>Year:
-      {{#if car.year}}
-        {{car.year}}
-      {{else}}
-        No year provided.
-      {{/if}}
+      {{car.year}}
+    </h3>
+    <h3>Maintenance:
+      {{car.repair}}
+    </h3>
+    <h3>Maintenance cost:
+      {{car.rcost}}
+    </h3>
+    <h3>Insurance payment:
+      {{car.insurance}}
+    </h3>
+    <h3>Fuel cost:
+   {{#if car.gas}}
+     {{car.gas}}
+   {{else}}
+     No cost provided.
+   {{/if}}
     </h3>
     <button type="button" class="btn btn-danger" id='destroyCar'>Remove</button>
+    <button type="button" class="btn btn-light" id='updateCar'>Update</button>
   </section>
   {{/each}}
