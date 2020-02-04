@@ -22,6 +22,7 @@
 </ul> -->
       <header class="header">
       <nav class="nav">
+      <button class="btn btn-info after-auth home"> Home </button>
       <button class="btn btn-info change-pw-show after-auth"> Change Password </button>
       <button class="btn btn-info sign-in" id="signin"> Sign in to start</button>
       <button type="button" class="btn btn btn-light after-auth" id='printlist'> Print List </button>
@@ -108,6 +109,25 @@
         </form>
        </section>
 
-     <div class="content"></div>
+     <section class='after-auth'>
+       <form id='update-info'>
+         <h4>Your vehicle Info</h4>
+         <input type="text" name="car[model]" class="inputs" placeholder="make and model">
+         <input type="text" name="car[year]" class="inputs" placeholder="year">
+         </br>
+
+         <h4>Maintenance cost</h4>
+         <input type="text" name="car[repair]" class="inputs" placeholder="maintenance and repair">
+         <input type="number" name="car[rcost]" class="inputs" placeholder="cost $">
+         </br>
+
+         <h4>Other costs</h4>
+         <input type="number" name="car[insurance]" class="inputs" placeholder="insurance payment $">
+         <input type="number" name="car[gas]" class="inputs" placeholder="fuel cost $">
+         <button class="btn btn-secondary update">update</button>
+         </form>
+        </section>
+
+      <div class="content"></div>
     </body>
 </html>

@@ -74,6 +74,7 @@ const onUpdateCarSelect = (event) => {
   store.id = $(event.target).closest('section').data('id')
   console.log(store.id)
   $('#update-info').show()
+  $('.content').hide()
 }
 const onUpdateCar = function (event) {
   event.preventDefault()
@@ -89,7 +90,7 @@ const addHandlers = function () {
   $('.change-pw-show').on('click', () => ui.changePasswordShow())
   $('#addcost').on('click', () => ui.carInfoShow())
   // $('.content').on('click', () => ui.carUpdateShow())
-  $('#clear').on('click', () => ui.clearCars())
+  $('.home').on('click', () => ui.clearCars())
   // or remove all cars at once using API.removeAllCars
   // submit after fill the forms
   $('#sign-up').on('submit', onSignUp)

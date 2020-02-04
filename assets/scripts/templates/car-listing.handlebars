@@ -1,29 +1,41 @@
 {{#each cars as |car|}}
   {{log car}}
   <section class='carlist' data-id="{{car.id}}">
-    <h3 class= 'carmodel'></h3>
-    <h3> Model:
-      {{car.model}}
-    </h3>
-    <h3>Year:
-      {{car.year}}
-    </h3>
-    <h3>Maintenance:
-      {{car.repair}}
-    </h3>
-    <h3>Maintenance cost:
-      {{car.rcost}}
-    </h3>
-    <h3>Insurance payment:
-      {{car.insurance}}
-    </h3>
-    <h3>Fuel cost:
+    <h5 class= 'carmodel'></h5>
+    <h5> Model:
+       {{car.model}}
+    </h5>
+    <h5>Year:
+       {{car.year}}
+    </h5>
+    <h5>Maintenance:
+      {{#if car.repair}}
+        {{car.repair}}
+      {{else}}
+        Empty
+      {{/if}}
+    </h5>
+    <h5>Maintenance cost:
+       {{#if car.rcost}}
+        {{car.rcost}} $
+      {{else}}
+         0 $
+      {{/if}}
+    </h5>
+    <h5>Insurance payment:
+       {{#if car.insurance}}
+        {{car.insurance}} $
+      {{else}}
+         0 $
+      {{/if}}
+    </h5>
+    <h5>Fuel cost:
    {{#if car.gas}}
-     {{car.gas}}
+     {{car.gas}} $
    {{else}}
-     No cost provided.
+      0 $
    {{/if}}
-    </h3>
+ </h5>
     <button type="button" class="btn btn-danger" id='destroyCar'>Remove</button>
     <button type="button" class="btn btn-light" id='updateCar'>Update</button>
   </section>

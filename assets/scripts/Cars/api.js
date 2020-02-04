@@ -72,24 +72,7 @@ const removeCar = function (carId) {
     }
   })
 }
-const removeAllCars = function () {
-  return $.ajax({
-    url: config.apiUrl + '/cars/',
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-const getCar = (id) => {
-  return $.ajax({
-    url: config.apiUrl + '/books/' + id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
+
 const updateCar = function (data) {
   return $.ajax({
     url: config.apiUrl + '/cars/' + store.id,
@@ -107,8 +90,6 @@ module.exports = {
   signOut,
   addToList,
   removeCar,
-  removeAllCars,
   printList,
-  getCar,
   updateCar
 }

@@ -37,12 +37,6 @@ const signOutFailure = function () {
   console.log('error')
 }
 
-// const carInfoSuccess = function (response) {
-//   $('#car-info')[0].reset()
-//   console.log(response)
-//   store.car = response.car
-// }
-
 // Show forms after click on button on nav bar
 const signInShow = function () {
   $('.before-auth').show()
@@ -50,9 +44,11 @@ const signInShow = function () {
 }
 const changePasswordShow = function () {
   $('#change-password').show()
+  $('#car-info, #update-info, .content').hide()
 }
 const carInfoShow = function () {
   $('#car-info').show()
+  $('.content, #update-info, #change-password').hide()
 }
 
 // Add costs to list form and store data
@@ -81,14 +77,14 @@ const printListSuccess = (data) => {
   const showCars = showCarsHB({ cars: data.cars })
   $('.content').html(showCars)
   $('.content').show()
-  $('.before-auth, #signin, #change-password, #car-info').hide()
+  $('.before-auth, #signin, #change-password, #car-info, #update-info').hide()
 }
 
 // Remove one obeject from the cars list using handelbars
 // Clear all cars list < onRemoveSuccess
 const clearCars = () => {
   $('.content').empty()
-  $('.before-auth, #signin, #change-password, #car-info').hide()
+  $('.before-auth, #signin, #change-password, #car-info, #update-info').hide()
 }
 // clear all objects first (clearCars) then get the new list from API
 const onRemoveSuccess = (data) => {
