@@ -30,7 +30,7 @@ const changePasswordFailure = function () {
 const signOutSuccess = function (response) {
   $('#sign-in, #sign-up, #change-password')[0].reset()
   $('h1, p, #signin').show()
-  $('.after-auth, .before-auth').hide()
+  $('.after-auth, .before-auth, .content').hide()
 }
 const signOutFailure = function () {
   console.log('error')
