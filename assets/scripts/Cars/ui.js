@@ -11,7 +11,6 @@ const signUpSuccess = function (response) {
 // sign in
 const signInSuccess = function (response) {
   store.user = response.user
-  console.log(response)
   $('.after-auth').show()
   $('.before-auth, #signin, #change-password, #car-info, #update-info').hide()
 }
@@ -53,7 +52,6 @@ const carInfoShow = function () {
 
 // Add costs to list form and store data
 const addToListSuccess = function (response) {
-  console.log(response)
   store.car = response.car
   $('#car-info')[0].reset()
   $('.after-auth').show()
@@ -68,12 +66,10 @@ const onGetCarSuccess = function (response) {
   store.currentcar = response.car
 }
 const updateCarSuccess = function (response) {
-  console.log(response)
   store.car = response.car
 }
 // Handlebars
 const printListSuccess = (data) => {
-  console.log(data)
   const showCars = showCarsHB({ cars: data.cars })
   $('.content').html(showCars)
   $('.content').show()
