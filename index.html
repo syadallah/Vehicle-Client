@@ -29,12 +29,9 @@
       <button type="button" class="btn btn btn-light after-auth" id='addcost'> Add cost </button>
       <button class="btn btn-danger after-auth" id='sign-out'>Sign Out</button>
       </nav>
-      <div class="alert alert-warning alert-dismissible after-auth" role="alert">
-      <strong>Greate!</strong> You should check in on some of those fields above.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+      <h6 id='success-message'></h6>
+      <h6 id='failure-message'></h6>
+
       <div data-hidden-breakpoint>
       <h1><span class="text-white">
       <span class="extendedbold">How Much Does It Really
@@ -69,7 +66,7 @@
 
       <section class="before-auth">
         <form id="sign-in">
-          <h4>Sign Up</h4>
+          <h4>Sign In</h4>
           <input type="email" name="credentials[email]" class="inputs" placeholder="Email" required>
           <br>
           <input type="password" name="credentials[password]" class="inputs" placeholder="Password" required>

@@ -36,6 +36,13 @@
       0 $
    {{/if}}
  </h5>
+ <h5>total:
+{{#if car.total}}
+  {{car.total}} $
+{{else}}
+   0 $
+{{/if}}
+</h5>
     <button type="button" class="btn btn-danger" id='destroyCar'>Remove</button>
     <button type="button" class="btn btn-light" id='updateCar'>Update</button>
   </section>
