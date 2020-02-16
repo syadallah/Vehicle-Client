@@ -7,8 +7,7 @@
 // require('./example')
 const carEvents = require('./Cars/event')
 $(() => {
-  $('.after-auth').hide()
-  $('.before-auth').hide()
+  $('.after-auth, .before-auth, .print-list').hide()
 
   // your JS code goes here
   carEvents.addHandlers()

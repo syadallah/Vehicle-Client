@@ -42,7 +42,6 @@ const signInFailure = function (response) {
 
 // Change password
 const changePasswordSuccess = function (response) {
-  store.user = response.user
   $('.after-auth').show()
   $('.before-auth, #signin').hide()
   $('#success-message').html('You have got youself new password').show()
@@ -51,7 +50,6 @@ const changePasswordSuccess = function (response) {
   }, 2500)
 }
 const changePasswordFailure = function () {
-  console.log('error')
   $('#failure-message').html('Error: could not change password').show()
   setTimeout(function () {
     $('#failure-message').slideUp('slow')
@@ -62,7 +60,7 @@ const changePasswordFailure = function () {
 const signOutSuccess = function (response) {
   $('#sign-in, #sign-up, #change-password')[0].reset()
   $('h1, p, #signin').show()
-  $('.after-auth, .before-auth, .content').hide()
+  $('.after-auth, .before-auth, .print-list').hide()
   $('#success-message').html('You have been signed out').show()
   setTimeout(function () {
     $('#success-message').slideUp('slow')
@@ -82,60 +80,82 @@ const signInShow = function () {
 }
 const changePasswordShow = function () {
   $('#change-password').show()
-  $('#car-info, #update-info, .content').hide()
+  $('#car-info, #update-info, .print-list').hide()
 }
 const carInfoShow = function () {
   $('#car-info').show()
-  $('.content, #update-info, #change-password').hide()
+  $('.print-list, #update-info, #change-password').hide()
 }
 
-// Add costs to list form and store data
+// Add costs to list formcontent and store data
 const addToListSuccess = function (response) {
   store.car = response.car
   $('#car-info')[0].reset()
   $('.after-auth').show()
   $('#change-password').hide()
+  $('#success-message').html('successfuly added').show()
+  setTimeout(function () {
+    $('#success-message').slideUp('slow')
+  }, 2000)
   // $('.add-to-list')[0].reset()
 }
 
-const addToListFailure = function (response) {
-  console.log('error')
-}
 const onGetCarSuccess = function (response) {
   store.currentcar = response.car
 }
 const updateCarSuccess = function (response) {
   store.car = response.car
+  $('#success-message').html('successfuly updated').show()
+  setTimeout(function () {
+    $('#success-message').slideUp('slow')
+  }, 2000)
 }
 // Handlebars
 const printListSuccess = (data) => {
-  const carTotal = data.cars.map(car => {
-    car.total = car.gas + car.insurance
-    return car
-  })
-  let gasTotal = 0
-  carTotal.forEach(car => {
-    gasTotal += car.gas
-    console.log(gasTotal)
-  })
-  const showCars = showCarsHB({ cars: carTotal })
-  $('.content').html(showCars)
-  $('.content').show()
-  $('.before-auth, #signin, #change-password, #car-info, #update-info').hide()
+  // if there are no cars
+  if (data.cars.length === 0) {
+    $('.print-list, #change-password').hide()
+    $('#success-message').html('Please add cost, your lis is empty.').show()
+    setTimeout(function () {
+      $('#success-message').slideUp('slow')
+    }, 2000)
+  // if there are cars
+  } else {
+    const carTotal = data.cars.map(car => {
+      car.total = car.gas + car.insurance + car.rcost
+      return car
+    })
+    let gasTotal = 0
+    let insurance = 0
+    let maintenance = 0
+    carTotal.forEach(car => {
+      gasTotal += car.gas
+      insurance += car.insurance
+      maintenance += car.rcost
+      $('#total').html(`Maintenance Total:&nbsp; &nbsp;${maintenance}$ <br>
+        Insurance Total:&nbsp; &nbsp;${insurance}$ <br>
+        Gas Total:&nbsp;&nbsp;${gasTotal}$`)
+      $('#total').show()
+    })
+    const showCars = showCarsHB({ cars: carTotal })
+    $('#item').html(showCars)
+    $('#item').show()
+    $('.before-auth, #signin, #change-password, #car-info, #update-info').hide()
+  }
 }
 
 // Remove one obeject from the cars list using handelbars
 // Clear all cars list < onRemoveSuccess
 const clearCars = () => {
-  $('.content').empty()
-  $('.before-auth, #signin, #change-password, #car-info, #update-info').hide()
+  $('.print-list').empty()
+  $('.before-auth, #signin, #change-password, #car-info, #update-info, .print-list').hide()
 }
 // clear all objects first (clearCars) then get the new list from API
 const onRemoveSuccess = (data) => {
   clearCars()
   api.getCars(data)
     .then(printListSuccess)
-    // .catch(onRemoveFailure)
+  // .catch(onRemoveFailurspace-betweene)
 }
 
 module.exports = {
@@ -151,7 +171,6 @@ module.exports = {
   changePasswordShow,
   carInfoShow,
   addToListSuccess,
-  addToListFailure,
   printListSuccess,
   onRemoveSuccess,
   onGetCarSuccess,

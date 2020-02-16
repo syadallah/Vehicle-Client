@@ -9,7 +9,6 @@ const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormsFields(form)
-  console.log(data)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -47,7 +46,6 @@ const onAddToList = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormsFields(form)
-  console.log('car data is: ', data)
   api.addToList(data)
     .then(ui.addToListSuccess)
     .catch(ui.addToListFailure)
@@ -64,17 +62,16 @@ const onPrintList = function (event) {
 // Remove button for each car list using handelbars
 const onDestroyCar = function (event) {
   event.preventDefault()
-  const carId = $(event.target).closest('section').data('id')
+  const carId = $(event.target).data('id')
   api.removeCar(carId)
     .then(() => onPrintList(event))
     .catch(ui.removeCarFailure)
 }
 const onUpdateCarSelect = (event) => {
   event.preventDefault()
-  store.id = $(event.target).closest('section').data('id')
-  console.log(store.id)
+  store.id = $(event.target).data('id')
   $('#update-info').show()
-  $('.content').hide()
+  $('.print-list').hide()
 }
 const onUpdateCar = function (event) {
   event.preventDefault()
@@ -100,8 +97,8 @@ const addHandlers = function () {
   $('#car-info').on('submit', onAddToList)
   // Handelbars
   $('#printlist').on('click', onPrintList)
-  $('.content').on('click', '#destroyCar', onDestroyCar)
-  $('.content').on('click', '#updateCar', onUpdateCarSelect)
+  $('#item').on('click', '.destroyCar', onDestroyCar)
+  $('#item').on('click', '.updateCar', onUpdateCarSelect)
   $('#update-info').on('submit', onUpdateCar)
 }
 module.exports = {

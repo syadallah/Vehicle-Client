@@ -1,49 +1,48 @@
 {{#each cars as |car|}}
   {{log car}}
-  <section class='carlist' data-id="{{car.id}}">
-    <h5 class= 'carmodel'></h5>
-    <h5> Model:
+  <div class='carlist' data-id="{{car.id}}">
+    <h6> Model:
        {{car.model}}
-    </h5>
-    <h5>Year:
+    </h6>
+    <h6>Year:
        {{car.year}}
-    </h5>
-    <h5>Maintenance:
+    </h6>
+    <h6>Maintenance:
       {{#if car.repair}}
         {{car.repair}}
       {{else}}
         Empty
       {{/if}}
-    </h5>
-    <h5>Maintenance cost:
+    </h6>
+    <h6>Maintenance cost:
        {{#if car.rcost}}
         {{car.rcost}} $
       {{else}}
          0 $
       {{/if}}
-    </h5>
-    <h5>Insurance payment:
+    </h6>
+    <h6>Insurance payment:
        {{#if car.insurance}}
         {{car.insurance}} $
       {{else}}
          0 $
       {{/if}}
-    </h5>
-    <h5>Fuel cost:
+    </h6>
+    <h6>Fuel cost:
    {{#if car.gas}}
      {{car.gas}} $
    {{else}}
       0 $
    {{/if}}
- </h5>
- <h5>total:
+ </h6>
+ <!-- <h5>total:
 {{#if car.total}}
   {{car.total}} $
 {{else}}
    0 $
-{{/if}}
+{{/if}} -->
 </h5>
-    <button type="button" class="btn btn-danger" id='destroyCar'>Remove</button>
-    <button type="button" class="btn btn-light" id='updateCar'>Update</button>
-  </section>
+    <button type="button" class="btn btn-danger destroyCar" data-id={{car.id}}>Remove</button>
+    <button type="button" class="btn btn-light updateCar" data-id={{car.id}}>Update</button>
+  </div>
   {{/each}}

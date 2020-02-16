@@ -12,14 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <!-- <ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Sign in</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-</ul> -->
+
       <header class="header">
       <nav class="nav">
       <button class="btn btn-info after-auth home"> Home </button>
@@ -29,27 +22,29 @@
       <button type="button" class="btn btn btn-light after-auth" id='addcost'> Add cost </button>
       <button class="btn btn-danger after-auth" id='sign-out'>Sign Out</button>
       </nav>
+      </header>
       <h6 id='success-message'></h6>
       <h6 id='failure-message'></h6>
-
+      <div id='total' class='print-list'></div>
       <div data-hidden-breakpoint>
       <h1><span class="text-white">
       <span class="extendedbold">How Much Does It Really
       </br>
       Cost To Own Your Car?
-    </br>
-      You'll Be
-      <div id="amazed">Amazed.</div>
+      </br>
+      You'll Be <span id="amazed">Amazed.</span>
       </span>
       </span>
       <br>
       </h1>
       <p><span class="text-white">
-      <span class="extended">Owning a car is expensive. Between the insurance, fuel,
+      <span class="extended">Owning a car is expensive. Between the insurance,
       </br>
-        and maintenance, owning one car can drain your bank account quickly.
+      fuel and maintenance, owning one car can drain
       </br>
-      Paying close attention to how much your vehicle costs is this app purpose </span>
+      your bank account quickly. Paying close attention
+      </br>
+      to how much your vehicle costs is this app purpose </span>
       </span>
       </p>
       </div>
@@ -62,7 +57,7 @@
       <br>
       <button class="btn btn-secondary">Submit</button>
       </form>
-      </header>
+
 
       <section class="before-auth">
         <form id="sign-in">
@@ -125,6 +120,7 @@
          </form>
         </section>
 
-      <div class="content"></div>
+      <div id="item" class='print-list'></div>
+
     </body>
 </html>

@@ -21,7 +21,6 @@ const signIn = function (data) {
 }
 
 const changePassword = function (data) {
-  // console.log(data) print on the dom the new and old password
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
