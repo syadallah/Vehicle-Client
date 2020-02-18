@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Real Cost of Your Car</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <header class="header">
+      <nav class="nav">
+      <button class="btn btn-info after-auth home"> Home </button>
+      <button class="btn btn-info change-pw-show after-auth"> Change Password </button>
+      <button class="btn btn-info sign-in" id="signin"> Sign in to start</button>
+      <button type="button" class="btn btn btn-light after-auth" id='printlist'> Print List </button>
+      <button type="button" class="btn btn btn-light after-auth" id='addcost'> Add cost </button>
+      <button class="btn btn-danger after-auth" id='sign-out'>Sign Out</button>
+      </nav>
+      </header>
+      <h6 id='success-message'></h6>
+      <h6 id='failure-message'></h6>
+      <div id='total' class='print-list'></div>
+      <div data-hidden-breakpoint>
+      <h1><span class="text-white">
+      <span class="extendedbold">How Much Does It Really
+      </br>
+      Cost To Own Your Car?
+      </br>
+      You'll Be <span id="amazed">Amazed.</span>
+      </span>
+      </span>
+      <br>
+      </h1>
+      <p><span class="text-white">
+      <span class="extended">Owning a car is expensive. Between the insurance,
+      </br>
+      fuel and maintenance, owning one car can drain
+      </br>
+      your bank account quickly. Paying close attention
+      </br>
+      to how much your vehicle costs is this app purpose </span>
+      </span>
+      </p>
+      </div>
+
+      <form id="change-password" class="after-auth account-actions">
+      <h4>Change Password</h4>
+      <input type="password" name="passwords[old]" class="inputs" placeholder="Old password" required="">
+      <br>
+      <input type="password" name="passwords[new]" class="inputs" placeholder="New password" required="">
+      <br>
+      <button class="btn btn-secondary">Submit</button>
+      </form>
+
+
+      <section class="before-auth">
+        <form id="sign-in">
+          <h4>Sign In</h4>
+          <input type="email" name="credentials[email]" class="inputs" placeholder="Email" required>
+          <br>
+          <input type="password" name="credentials[password]" class="inputs" placeholder="Password" required>
+          <br>
+          <button class="btn btn-secondary">Sign in</button>
+        </form>
+      <form id="sign-up">
+        <h4>Sign Up</h4>
+        <input type="email" name="credentials[email]" class="inputs" placeholder="Email" required>
+        <br>
+        <input type="password" name="credentials[password]" class="inputs" placeholder="Password" required>
+        <br>
+        <input type="password" name="credentials[password_confirmation]" class="inputs" placeholder="Confirmation" required>
+        <br>
+        <button class="btn btn-secondary">Sign up</button>
+      </form>
+
+      <p id="message"></p>
+    </section>
+
+    <section class='after-auth'>
+      <form id='car-info'>
+        <h4>Your vehicle Info</h4>
+        <input type="text" name="car[model]" class="inputs" placeholder="make and model">
+        <input type="text" name="car[year]" class="inputs" placeholder="year">
+        </br>
+
+        <h4>Maintenance cost</h4>
+        <input type="text" name="car[repair]" class="inputs" placeholder="maintenance and repair">
+        <input type="number" name="car[rcost]" class="inputs" placeholder="cost $">
+        </br>
+
+        <h4>Other costs</h4>
+        <input type="number" name="car[insurance]" class="inputs" placeholder="insurance payment $">
+        <input type="number" name="car[gas]" class="inputs" placeholder="fuel cost $">
+        <button class="btn btn-secondary add-to-list">Add to list</button>
+        </form>
+       </section>
+
+     <section class='after-auth'>
+       <form id='update-info'>
+         <h4>Your vehicle Info</h4>
+         <input type="text" name="car[model]" class="inputs" placeholder="make and model">
+         <input type="text" name="car[year]" class="inputs" placeholder="year">
+         </br>
+
+         <h4>Maintenance cost</h4>
+         <input type="text" name="car[repair]" class="inputs" placeholder="maintenance and repair">
+         <input type="number" name="car[rcost]" class="inputs" placeholder="cost $">
+         </br>
+
+         <h4>Other costs</h4>
+         <input type="number" name="car[insurance]" class="inputs" placeholder="insurance payment $">
+         <input type="number" name="car[gas]" class="inputs" placeholder="fuel cost $">
+         <button class="btn btn-secondary update">update</button>
+         </form>
+        </section>
+
+      <div id="item" class='print-list'></div>
+
+    </body>
+</html>
