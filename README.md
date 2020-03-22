@@ -1,9 +1,14 @@
 ## Real Cost of Your Vehicle
-
+![Image description](https://i.imgur.com/zgX84GE.png)\
+\
+![Image description](https://i.imgur.com/ZlkFTmg.png)
 ### links:
-Website:      https://syadallah.github.io/Real-Cost-of-Vehicle-Client/ \
-Deployed API: https://sleepy-fjord-72760.herokuapp.com/ \
-GitHub API:   https://github.com/syadallah/rails-api-CostofVehicle
+[Website](https://syadallah.github.io/Real-Cost-of-Vehicle-Client/) \
+Demo email \
+Email: i@i \
+Password: 1 \
+[Deployed API](https://sleepy-fjord-72760.herokuapp.com/) \
+[GitHub API](https://github.com/syadallah/rails-api-CostofVehicle)
 
 
 ### Description:
@@ -21,7 +26,7 @@ As a user, I can reset my password after I login. \
 As a user, I will get feedback after each action's success or failure. \
 As a user, I can add cost to my list.
 As a user, I can view my list and the total cost of gas, maintenance, and insurance. \
-As a user, I can remove or update my list. \
+As a user, I can remove or update my list.
 
 
 
@@ -36,7 +41,7 @@ bootstrap
 
 ## Wireframe
 
-Link: https://i.imgur.com/6ESRPPh.jpg
+[Link](https://i.imgur.com/6ESRPPh.jpg)
 
 ### Still need to work on:
 Add dates and costs per year and month.
